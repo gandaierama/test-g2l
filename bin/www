@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('g2l:server');
+var debug = require('debug')('test-g2l:server');
 var http = require('http');
 
 /**
