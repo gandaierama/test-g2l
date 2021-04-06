@@ -1,17 +1,33 @@
 {
-  "name": "test-g2l",
-  "version": "0.0.0",
-  "private": true,
+  "name": "g2l-test",
+  "version": "1.0.0",
+  "description": "Test g2l",
+  "main": "index.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gandaierama/g2l-test.git"
+  },
+  "keywords": [
+    "g2l",
+    "test"
+  ],
+  "author": "Daniel Batista Galvão",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gandaierama/g2l-test/issues"
+  },
+  "homepage": "https://github.com/gandaierama/g2l-test#readme",
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "http-errors": "~1.6.3",
-    "jade": "^1.11.0",
-    "mongoose": "^5.12.2",
-    "morgan": "~1.9.1"
+    "mongodb": "^3.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
