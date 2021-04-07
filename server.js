@@ -2,37 +2,56 @@ const express = require('express');
 const app = express();
 const bodyParser= require('body-parser')
 const MongoClient = require('mongodb').MongoClient
+const connectionString ='mongodb+srv://g2lUser:741852g2l@cluster0.mbkdx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set('view engine', 'ejs')
-const connectionString ='mongodb+srv://g2lUser:741852g2l@cluster0.mbkdx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then(client => {
     console.log('Connected to Database');
     const db = client.db('g2l');
 
+    //Tabelas
     const motoristasCollection = db.collection('motoristas');
     const veiculosCollection = db.collection('veiculos');
-  	console.log(db);
+
 
   	app.get('/', function (req, res) {
-
-	const data= db.collection('motoristas').find().toArray()
-    .then(results => {
-      console.log(results)
-    }).catch(error => console.error(error))
-	    
-	res.render(__dirname + '/view/motoristas.ejs', {title: "Teste", data: data});
+		res.render(__dirname + '/view/pages/index', {title: "Teste"});
+	})
+////////////////////////////////////
+	
+	/////form and list
+  	app.get('/veiculos', function (req, res) {
+		const data= db.collection('veiculos').find().toArray()
+	    .then(results => {
+	    	
+	    }).catch(error => console.error(error))
+		    
+		res.render(__dirname + '/view/pages/veiculos', {title: "Teste", data: data});
 	})
 
-
+  	/////add 
 	app.post('/veiculos/add', (req, res) => {
 	  motoristasCollection.insertOne(req.body)
 	    .then(result => {
 	      console.log(result)
 	    })
 	    .catch(error => console.error(error))
+	})
+
+//////////////////////////////////
+	
+	/////form and list
+	app.get('/motoristas', function (req, res) {
+		const data= db.collection('motoristas').find().toArray()
+	    .then(results => {
+	    	
+	    }).catch(error => console.error(error))
+		    
+		res.render(__dirname + '/view/pages/motoristas', {title: "Teste", data: data});
 	})
 
 	/////add 
@@ -43,27 +62,11 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
 	    })
 	    .catch(error => console.error(error))
 
-	    res.render(__dirname + '/view/motoristas.ejs', {title: "Teste", resposta:{type:"Ok"}});
+	    res.render(__dirname + '/view/motoristas', {title: "Teste", resposta:{type:"Ok"}});
 
 	})
 
   })
-
-
-
-
-
-///////
-app.get('/motoristas', (req, res) => {
-	res.sendFile(__dirname + '/view/motoristas.html');
-})
-
-app.get('/veiculos', (req, res) => {
-	res.sendFile(__dirname + '/view/motoristas.html');
-})
-
-
-
 
 
 

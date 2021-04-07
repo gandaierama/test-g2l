@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('../communs/head'); %>
+
+</head>
+<body class="container bg-success">
+<header>
+    <%- include('../communs/header'); %>
+</header>
+
+<main>
+
+<div class="row mt-5">
+	<div class="col-6">
+		<div class="card card-body">
+			<form action="/motoristas/add" method="POST">
+			<div class="form-group">
+				<labe>Nome do Motoristas</label>
+				<input class="form-control" type="text" placeholder="Digite o nome do motorista" name="name">
+				<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+			</div>
+			<div class="form-group">
+				<labe>CPF do Motoristas</label>
+				<input class="form-control"type="text" placeholder="Digite o cpf" name="cpf">
+				<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+			</div>
+			<div class="form-group">
+				<labe>CPF do Motoristas</label>
+				<input class="form-control"type="text" placeholder="Digite o cpf" name="cpf">
+				<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+			</div>
+			<div class="form-group">
+				<labe>CPF do Motoristas</label>
+				<input class="form-control"type="text" placeholder="Digite o cpf" name="cpf">
+				<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+			</div>
+			<button class="btn btn-success btn-block mt-2 mb-2" type="submit">Submit</button>
+			</form>
+		</div>
+	</div>
+	<div class="col-6">
+	</div>
+</div>
+</main>
+
+<footer>
+    <%- include('../communs/footer'); %>
+</footer>
+</body>
+</html>
